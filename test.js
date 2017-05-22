@@ -43,33 +43,39 @@
 // dojo.location.zipcode = "unknown";             // note that we can change this from integer to string
 // dojo.phone_number = 1234567890 ;
 
-var glazedDonuts = [
-  {
-    frosting: 'glazed',
-    type: 'old fashioned',
-    age: '45',
-    time: 'minutes'
-  },
-  {
-    frosting: 'glazed',
-    type: 'regular',
-    age: '5',
-    time: 'minutes'
-  },
-  {
-    frosting: 'glazed',
-    type: 'jelly filled',
-    age: '1',
-    time: 'seconds'
-  }
-];
+// var glazedDonuts = [
+//   {
+//     frosting: 'glazed',
+//     type: 'old fashioned',
+//     age: '45',
+//     time: 'minutes'
+//   },
+//   {
+//     frosting: 'glazed',
+//     type: 'regular',
+//     age: '5',
+//     time: 'minutes'
+//   },
+//   {
+//     frosting: 'glazed',
+//     type: 'jelly filled',
+//     age: '1',
+//     time: 'seconds'
+//   }
+// ];
 
-var purchase;
-//You
-if((glazedDonuts[0].age < 25 && glazedDonuts[0].time == 'minutes') || glazedDonuts[0].time == 'seconds'){
-  //shop owner
-  purchase = glazedDonuts[0];
-}
-else {
-  console.log('sorry it has been out a bit longer');
+// var purchase;
+// //You
+// if((glazedDonuts[0].age < 25 && glazedDonuts[0].time == 'minutes') || glazedDonuts[0].time == 'seconds'){
+//   //shop owner
+//   purchase = glazedDonuts[0];
+// }
+// else {
+//   console.log('sorry it has been out a bit longer');
+// }
+
+var varFunction;           // the variable declaration gets hoisted to the top
+varFunction();             // this tries to invoke "undefined": we get "undefined is not a function"
+varFunction = function() {
+  console.log("How will this get hoisted?")
 }
