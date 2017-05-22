@@ -126,7 +126,7 @@ var person = {
 	crawl: 				function(){
 							console.log(`${person.name} is crawling`);
 							person.distance_traveled+=1;	
-						},  
+						}  
 }
 
 console.log(person.name);
