@@ -1,0 +1,25 @@
+{
+  "name": "matt_vobejda",
+  "version": "1.0.0",
+  "description": "* [filter](./coding_challenges/filter.js)\r * [map](./coding_challenges/map.js)",
+  "main": "test.js",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojo-react-workshop/matt_vobejda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dojo-react-workshop/matt_vobejda/issues"
+  },
+  "homepage": "https://github.com/dojo-react-workshop/matt_vobejda#readme"
+}

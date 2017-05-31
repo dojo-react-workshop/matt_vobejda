@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Composable Squares</title>
+	<script type="text/javascript" src="./node_modules/react/dist/react.js"></script>
+	<script type="text/javascript" src="./node_modules/react-dom/dist/react-dom.js"></script>
+</head>
+<style type="text/css">
+</style>
+<body>
+	<dir id='react'></dir>
+	<script type="text/javascript">
+		'use strict'
+
+		//container/App
+			//header
+			//wrapper
+				//row/line items
+					//circle counter
+					//Text
+					//Vote Button
+
+		//Array
+		//.map() -> basically iterates through an array (don't have to use for loop)
+		//.filter() -> returns a new array of the items that meet the filter criteria
+		//.reduce() -> applies some sort of accumlator towards the contents (sum, product)
+
+		//Object
+		//.assign() -> cloning, merging (same properties) and copying objects
+		
+		const rows = [
+			{
+				votes: 15,
+				text: 'React'
+			},
+			{
+				votes: 12,
+				text: 'Vue'				
+			},
+			{
+				votes: 9,
+				text: 'Angular'					
+			},
+			{
+				votes: 4,
+				text: 'Ember'					
+			}
+		];
+
+		const Container = (props) => {
+			const rows = props;
+			const style = {
+				width: '100%',
+    			margin: '0 auto'
+				//height: '50px',
+				//maxWidth: '960px',
+    			//margin: 'auto'
+				//display: 'block'
+				//border: 'black solid 1px'
+			};
+			//const rows = props.rows.map((rowObj, idx) => {
+			//	return React.createElement(Square, {key: idx, colorData: squareObj})
+			//});
+			return React.createElement('div', { style: style}, 
+				React.createElement(Header, {text: 'Vote Your JS Library!'}),
+				React.createElement(Wrapper, rows)
+			)
+		}
+
+		const Header = (props) => {
+			const {text} = props;
+			const style = {
+				width: '400px'
+    			//margin: '0 auto'
+				//height: '50px',
+				//maxWidth: '960px',
+    			//margin: 'auto'
+				//display: 'block'
+				//border: 'black solid 1px'
+			};
+		    return React.createElement('h1', { style: style}, text);
+		}
+
+		const Wrapper = (props) => {
+			const style = {
+				//height: '50px',
+				//maxWidth: '960px',
+				//width: '100%',
+    			//margin: '0 auto',
+				//display: 'block',
+				//border: 'black solid 1px'
+				alignContent: 'center'
+			};
+			const rows = props.rows.map((rowsObj, idx) => {
+			 	return React.createElement(Rows, {key: idx, vote: rowsObj})
+			});
+		    return React.createElement('div',{ style: style},rows);
+		}
+
+		const Rows = (props) => {
+			const {vote} = props;
+			const style = {
+				height: '50px',
+				width: '200px',
+				//display: 'inline-block',
+				border: 'black solid 1px'
+			};
+	
+			return React.createElement('div', { style: style}, 
+				React.createElement(Counter, {vote: vote}),
+				React.createElement(RowText, {vote: vote}),
+				React.createElement(VoteButton, null)
+			);
+		}
+
+		const Counter = (props) => {
+			const {vote} = props;
+			const style = {
+				border: 'orange solid 1px',
+				height: '40px',
+				borderRadius: '20px',
+				display: 'inline-block',
+				width: '40px',
+				//paddingLeft: '15px'
+				marginLeft: '5px',
+				textAlign: 'center',
+				//verticalAlign: 'middle'
+			};
+
+			const value = `${vote.votes}`;
+			
+			return React.createElement('div', { style: style}, value);
+		}
+
+		const RowText = (props) => {
+			const {vote} = props;
+			const style = {
+				display: 'inline-block',
+				fontSize: '20px',
+				width: '115px',
+				verticalAlign: 'middle',
+				textAlign: 'center'
+			};
+
+			const text = `${vote.text}`;
+			
+			return React.createElement('div', { style: style}, text);
+		}
+
+		const VoteButton = (props) => {
+			const style = {
+				height: '30px',
+				display: 'inline-block',
+				width: '30px',
+				verticalAlign: 'middle',
+				backgroundImage: 'url("./plus.jpg")'
+			};
+			
+			return React.createElement('img', { style: style});
+		}
+
+		ReactDOM.render(
+			React.createElement(Container, {rows: rows}),
+			document.getElementById('react')
+		);
+
+	</script>
+</body>
+</html>

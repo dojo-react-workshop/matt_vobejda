@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Form</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./../scripts/main.js"></script>
+</head>
+<style type="text/css">
+	.error{
+		text-decoration-color: red;
+	}
+</style>
+<body>
+	<h1>Survey Form</h1>
+	<div class="name_content">
+		<form>
+			<p>Your Name: <input type="text" name="your_name" placeholder="Your Name"></p>
+			<p>Dojo Location: 
+			<select name="dojo_loc">
+				<option value="mountain">Mountain View</option>
+				<option value="seattle">Seattle</option>
+				<option value="milwaukee">Milwaukee</option>
+				<option value="california">California</option>
+			</select></p>
+			<p>Favorite Language: 
+			<select name="fav_lang">
+				<option value="javascript">Javascript</option>
+				<option value="css">CSS</option>
+				<option value="html">HTML</option>
+				<option value="java">Java</option>
+			</select></p>
+			<p>Comment (optional): </p>
+			<input type="textarea" name="comment" placeholder="Comments" style="height: 100px width: 200px"><br>
+			<input type="submit" name="submit">
+		</form>		
+	</div> <!-- name_content -->
+</body>
+</html>

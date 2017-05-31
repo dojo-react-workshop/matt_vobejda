@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello Dojo</title>
+	<script type="text/javascript" src="./node_modules/react/dist/react.js"></script>
+	<script type="text/javascript" src="./node_modules/react-dom/dist/react-dom.js"></script>
+</head>
+<style type="text/css">
+	ul {
+		list-style: none;
+		padding: 0px;
+	}
+	li:before {
+		content: "\2605";
+	}
+</style>
+<body>
+	<dir id='react'></dir>
+	<script type="text/javascript">
+		'use strict'
+
+		const reactContainer = document.getElementById('react');
+
+		const style = {style: {backgroundColor: 'orange'}};  //remove dashes from css and use camel case
+
+		const ListComponent = (props) => {
+			const {todos} = props;
+			const listItems = todos.map((text, idx) => {
+				return React.createElement('li', {key: idx},text);
+			})
+			return React.createElement('ul',style,listItems);
+		}
+
+		ReactDOM.render(
+			React.createElement(
+				'div',
+				null,
+				React.createElement('h1',null,'Hello Dojo!'),
+				React.createElement('h3',null,'Things I need to do:'),
+				React.createElement(ListComponent,
+					{
+						todos: [' Learn React',' Climb Mt. Everest',' Run a marathon',' Feed the dogs']
+					}),
+			),
+			reactContainer
+		);			
+
+	</script>
+</body>
+</html>

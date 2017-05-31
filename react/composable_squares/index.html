@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Composable Squares</title>
+	<script type="text/javascript" src="./node_modules/react/dist/react.js"></script>
+	<script type="text/javascript" src="./node_modules/react-dom/dist/react-dom.js"></script>
+</head>
+<style type="text/css">
+/*	ul {
+		list-style: none;
+		padding: 0px;
+	}
+	li:before {
+		content: "\2605";
+	}*/
+</style>
+<body>
+	<dir id='react'></dir>
+	<script type="text/javascript">
+		'use strict'
+
+		// const reactContainer = document.getElementById('react');
+
+		// //const style = {style: {backgroundColor: 'orange'}};  //remove dashes from css and use camel case
+
+		// const AppComponent = (props) => {
+		// 	const {backgroundColor} = props;
+		// 	const {textColor} = props;
+		// 	const {text} = props;
+		// 	const listItems = todos.map((text, idx) => {
+		// 	// 	return React.createElement('li', {key: idx},text);
+		// 	})
+		// 	return React.createElement('h1',style,listItems);
+		// }
+
+
+		// // const ListComponent = (props) => {
+		// // 	const {todos} = props;
+		// // 	const listItems = todos.map((text, idx) => {
+		// // 		return React.createElement('li', {key: idx},text);
+		// // 	})
+		// // 	return React.createElement('ul',style,listItems);
+		// // }
+
+		// ReactDOM.render(
+		// 	//React.createElement('h1', { style: { backgroundColor: 'pink' } }, 'This text should have a pink background!'
+	
+		// 	arrObj = [
+		// 		{
+		// 			backgroundColor: 'blue',
+		// 			textColor: 'white',
+		// 			text: 'white on blue'
+		// 		},
+		// 		{
+		// 			backgroundColor: 'red',
+		// 			textColor: 'blue',
+		// 			text: 'blue on red'					
+		// 		},
+		// 		{
+		// 			backgroundColor: 'pink',
+		// 			textColor: 'green',
+		// 			text: 'green on pink'					
+		// 		}
+		// 	];
+
+		// 	React.createElement(
+		// 		AppComponent,
+		// 		arrObj
+		// 	),
+		// 	reactContainer
+		// );			
+
+		const squares = [
+			{
+				background: 'blue',
+				text: 'white'
+			},
+			{
+				background: 'red',
+				text: 'blue'				
+			},
+			{
+				background: 'pink',
+				text: 'green'					
+			}
+		];
+
+		const Container = (props) => {
+			const squares = props.squares.map((squareObj, idx) => {
+				return React.createElement(Square, {key: idx, colorData: squareObj})
+			});
+			return React.createElement('div',null,squares);
+		}
+
+		const Square = (props) => {
+			const {colorData} = props;
+			const style = {
+				height: '275px',
+				width: '275px',
+				display: 'inline-block',
+				fontSize: '40px',
+				color: colorData.text,
+				backgroundColor: colorData.background
+			};
+
+			const text = `${style.color} on ${style.backgroundColor}`;
+			
+			return React.createElement('div', { style: style}, text);
+		}
+
+		ReactDOM.render(
+			React.createElement(Container, {squares: squares}),
+			document.getElementById('react')
+		);
+
+	</script>
+</body>
+</html>

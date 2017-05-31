@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Namelist</title>
+    <link rel="stylesheet" type="text/css" href="./../styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="./../scripts/main.js"></script>
+</head>
+<body>
+    <div class='container'>
+        <div class='form'>
+            <h1>Namelist</h1>
+            <form class="form1">
+                <input type="text" name="name">
+                <input type="submit" name="submit" value="Add Name" class="btn btn-success">
+            </form>
+            <div class='namelist'>
+                <%for(let i=0; i<names.length; i++){%>
+                   <div dname="<%=names[i].name%>" id="<%=names[i].id%>" class="nameid<%=names[i].id%>"><p><%=names[i].name%><img name="<%=names[i].id%>" src="./../images/delete.png" alt="delete icon"></p></div>
+                <%}%>
+            </div>
+        </div> <!-- form -->
+    </div> <!-- container -->
+
+</body>
+</html>
